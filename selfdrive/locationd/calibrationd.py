@@ -22,7 +22,7 @@ from openpilot.common.swaglog import cloudlog
 
 MIN_SPEED_FILTER = 15 * CV.MPH_TO_MS
 MAX_VEL_ANGLE_STD = np.radians(0.25)
-MAX_YAW_RATE_FILTER = np.radians(2)  # per second
+MAX_YAW_RATE_FILTER = np.radians(.5)  # per second
 
 MAX_HEIGHT_STD = np.exp(-3.5)
 
