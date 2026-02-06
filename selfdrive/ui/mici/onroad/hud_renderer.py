@@ -216,12 +216,12 @@ class HudRenderer(Widget):
         if alpha < 1e-2:
             return
 
-        SCALE = .50  # <<< 3x size
+        SCALE = 1.2 # 20% larger
 
         base_radius = 162 // 2
         circle_radius = int(base_radius * SCALE)
 
-        x = rect.x + rect.width - circle_radius * 2 - 10  # margin from right
+        x = rect.x + rect.width * 0.6 - circle_radius  # ~60% from left
         y = rect.y + 10  # margin from top
 
         rl.draw_circle_gradient(int(x + circle_radius), int(y + circle_radius), circle_radius,
