@@ -220,8 +220,10 @@ class HudRenderer(Widget):
         base_radius = 162 // 2
         circle_radius = int(base_radius * SCALE)
 
-        x = rect.x + rect.width * 0.6 - circle_radius  # ~60% from left
-        y = rect.y + 10  # margin from top
+        MARGIN = 5
+
+        x = rect.x + rect.width - circle_radius * 2 - MARGIN
+        y = rect.y + MARGIN
 
         rl.draw_circle_gradient(int(x + circle_radius), int(y + circle_radius), circle_radius,
                         rl.Color(0, 0, 0, int(255 / 2 * alpha)), rl.BLANK)
