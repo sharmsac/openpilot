@@ -210,7 +210,6 @@ class HudRenderer(Widget):
 
     def _draw_set_speed(self, rect: rl.Rectangle) -> None:
         alpha = self._set_speed_alpha_filter.update(
-            0 < rl.get_time() - self._set_speed_changed_time < SET_SPEED_PERSISTENCE and
             self._can_draw_top_icons and self._engaged
         )
         if alpha < 1e-2:
@@ -227,8 +226,10 @@ class HudRenderer(Widget):
         rl.draw_circle_gradient(int(x + circle_radius), int(y + circle_radius), circle_radius,
                         rl.Color(0, 0, 0, int(255 / 2 * alpha)), rl.BLANK)
 
-        set_speed_color = rl.Color(255, 255, 255, int(255 * 0.9 * alpha))
-        max_color = rl.Color(255, 255, 255, int(255 * 0.9 * alpha))
+        ORANGE = rl.Color(255, 165, 0, int(255 * 0.9 * alpha))
+
+        set_speed_color = ORANGE
+        max_color = ORANGE
 
         set_speed = self.set_speed
         if self.is_cruise_set and not ui_state.is_metric:
@@ -239,7 +240,7 @@ class HudRenderer(Widget):
             self._font_display,
             set_speed_text,
             rl.Vector2(x + 13 + 4, y + 3 - 8 - 3 + 4),
-            FONT_SIZES.set_speed,
+            int(FONT_SIZES.set_speed * 0.55),  # ↓ smaller number
             0,
             set_speed_color,
         )
