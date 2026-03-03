@@ -215,7 +215,7 @@ class HudRenderer(Widget):
         if alpha < 1e-2:
             return
 
-        SCALE = 1.2 # 20% larger
+        SCALE = .9 # 20% larger
 
         base_radius = 162 // 2
         circle_radius = int(base_radius * SCALE)
@@ -263,7 +263,7 @@ class HudRenderer(Widget):
     def _draw_current_speed(self, rect: rl.Rectangle) -> None:
         """Draw the current vehicle speed in the high-left corner, 30% smaller."""
         SPEED_FONT_SCALE = int(FONT_SIZES.current_speed * 0.7)
-        UNIT_FONT_SCALE = int(FONT_SIZES.speed_unit * 0.7)
+        UNIT_FONT_SCALE = int(FONT_SIZES.speed_unit * 0.5)
 
         MARGIN_X = 10
         MARGIN_Y = 10
