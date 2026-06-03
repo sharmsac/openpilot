@@ -8,6 +8,9 @@ function agnos_init {
   # TODO: move this to agnos
   sudo rm -f /data/etc/NetworkManager/system-connections/*.nmmeta
 
+  # remove stale scons cache lock left behind if power was lost mid-build
+  rm -f /data/scons_cache/config.lock
+
   # set success flag for current boot slot
   sudo abctl --set_success
 
